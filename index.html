@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.O.E. Knowledge Hub & Operator Training</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #111827; color: #f9fafb; }
+        .fade-in { animation: fadeIn 0.3s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* Custom Scrollbar for sleekness */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #1f2937; }
+        ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <header class="w-full bg-gray-900 border-b border-gray-800 py-5 px-6 flex justify-between items-center sticky top-0 z-20 shadow-md">
+        <div class="font-bold tracking-tighter text-xl text-white">M.O.E. <span class="text-gray-500 font-light">GROUP</span></div>
+        <div class="text-[10px] md:text-xs uppercase tracking-widest text-gray-400 border border-gray-700 px-3 py-1 rounded-full">Operator Training Hub v1.0</div>
+    </header>
+
+    <main class="flex-grow flex flex-col w-full max-w-4xl mx-auto p-4 md:p-8">
+        
+        <div class="flex space-x-2 bg-gray-800 p-1 rounded-xl mb-8">
+            <button onclick="switchTab('mindset')" id="btn-mindset" class="flex-1 py-3 px-4 text-sm font-semibold rounded-lg bg-gray-700 text-white shadow transition-all">
+                🧠 Billionaire Mental Models
+            </button>
+            <button onclick="switchTab('quiz')" id="btn-quiz" class="flex-1 py-3 px-4 text-sm font-semibold rounded-lg text-gray-400 hover:text-white transition-all">
+                🧬 The NCIP Core Quiz
+            </button>
+        </div>
+
+        <div id="tab-mindset" class="fade-in space-y-6">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold mb-2">The Architect's Mindset</h2>
+                <p class="text-gray-400 text-sm">Shift from average thinker to Billionaire Thinker. These are the operational doctrines for dealing with High-Value Operators (HVOs).</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-800 border border-gray-700 rounded-2xl p-6 hover:border-gray-500 transition-colors">
+                    <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center mb-4 text-xl">⚖️</div>
+                    <h3 class="font-bold text-lg mb-1">Naval Ravikant</h3>
+                    <p class="text-xs text-blue-400 uppercase tracking-widest font-semibold mb-4">Asymmetric Leverage</p>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Use the basic Bayanihan System for the masses—it scales infinitely with zero friction. Reserve your "Iron Skeleton" (Clinical Pilates/M.O.E. Diagnostics) exclusively for High-Value Operators (HVOs). Do not waste high-leverage knowledge on low-leverage execution.
+                    </p>
+                </div>
+
+                <div class="bg-gray-800 border border-gray-700 rounded-2xl p-6 hover:border-gray-500 transition-colors">
+                    <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center mb-4 text-xl">🚀</div>
+                    <h3 class="font-bold text-lg mb-1">Elon Musk</h3>
+                    <p class="text-xs text-blue-400 uppercase tracking-widest font-semibold mb-4">First Principles</p>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        The absolute first principle of a Nutrition Club is frictionless duplication. Do not add complex clinical forms to a basic entry-point. Strip away the noise. The goal is simply "Liquid Trust" (the shake) and a "Visceral Inversion" (the scale).
+                    </p>
+                </div>
+
+                <div class="bg-gray-800 border border-gray-700 rounded-2xl p-6 hover:border-gray-500 transition-colors">
+                    <div class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center mb-4 text-xl">🚪</div>
+                    <h3 class="font-bold text-lg mb-1">Jeff Bezos</h3>
+                    <p class="text-xs text-blue-400 uppercase tracking-widest font-semibold mb-4">Two-Way Doors</p>
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Handing out shakes and asking quiz questions on the street are Two-Way Doors (easily reversible, low risk). Execute them rapidly. Building complex digital funnels is a One-Way Door. Pause heavy architecture during Sprints and focus on execution.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-quiz" class="hidden space-y-6">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold mb-2">Biological First Principles</h2>
+                <p class="text-gray-400 text-sm">The 10+1 Days NCIP Quiz, upgraded with the M.O.E. Group "Wolf" Doctrine. Tap a question to reveal the biological truth.</p>
+            </div>
+
+            <div id="accordion-container" class="space-y-3">
+                </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Tab Switching Logic
+        function switchTab(tab) {
+            const mindsetTab = document.getElementById('tab-mindset');
+            const quizTab = document.getElementById('tab-quiz');
+            const btnMindset = document.getElementById('btn-mindset');
+            const btnQuiz = document.getElementById('btn-quiz');
+
+            if (tab === 'mindset') {
+                mindsetTab.classList.remove('hidden');
+                mindsetTab.classList.add('fade-in');
+                quizTab.classList.add('hidden');
+                
+                btnMindset.classList.replace('bg-transparent', 'bg-gray-700');
+                btnMindset.classList.replace('text-gray-400', 'text-white');
+                btnQuiz.classList.replace('bg-gray-700', 'bg-transparent');
+                btnQuiz.classList.replace('text-white', 'text-gray-400');
+            } else {
+                quizTab.classList.remove('hidden');
+                quizTab.classList.add('fade-in');
+                mindsetTab.classList.add('hidden');
+                
+                btnQuiz.classList.replace('bg-transparent', 'bg-gray-700');
+                btnQuiz.classList.replace('text-gray-400', 'text-white');
+                btnMindset.classList.replace('bg-gray-700', 'bg-transparent');
+                btnMindset.classList.replace('text-white', 'text-gray-400');
+            }
+        }
+
+        // Quiz Data Array
+        const quizData = [
+            { q: "If we accumulate an extra _____, we will gain 1 kg.", a: "7,700 kcal", explanation: "This is the biological law of thermodynamics. You must physically over-consume 7,700 calories of fuel for the body to forge 1kg of adipose (fat) tissue." },
+            { q: "Under which circumstances should we not drink too much water?", a: "Water retention, poor heart condition, kidney problems.", explanation: "The kidneys are your filtration plant. If the pump (heart) or the filter (kidneys) is failing, flooding the engine with water causes catastrophic swelling." },
+            { q: "Which organ does the human body utilize to absorb nutrients?", a: "Small Intestine (Villi)", explanation: "This is why we use Aloe. The small intestine is lined with microscopic fingers (villi). If they are caked in grease and toxins from a bad diet, you absorb nothing." },
+            { q: "What is the function of the Pancreas?", a: "Secrete Insulin", explanation: "It is the body's fuel regulator. When you eat sugar, the pancreas panics and dumps insulin to shove the toxic sugar out of the blood and into your fat cells." },
+            { q: "Under what situation will we harm our villi?", a: "High Stress, Medications, Poor Diet, Toxins.", explanation: "This is the root of our Ecosystem pitch. You can eat premium fuel, but if your villi are destroyed by stress and alcohol, you are pouring premium fuel into a broken tank." },
+            { q: "How much is Herbalife Formula 1 Glycemic Index (GI)?", a: "15-23 GI (Low)", explanation: "A low GI means the fuel burns slow and cold. It provides sustained energy and does not trigger a pancreas panic attack (insulin spike)." },
+            { q: "What does the body mainly consist of?", a: "Muscle, Water, Fat", explanation: "These are the fundamental components of the physical chassis. We do not track 'weight'; we track the composition of these three elements." },
+            { q: "Extreme dieting will cause:", a: "Muscle loss, Slower metabolism, Rebound weight gain.", explanation: "Starvation forces the body to eat its own structural armor (muscle). Less muscle = lower BMR = instant fat gain the moment you eat normally again." },
+            { q: "As a wise consumer, which 3 label details should we focus on?", a: "Calories, Protein, Sugar", explanation: "The Holy Trinity of macro-architecture. These dictate whether fuel is stored as fat or used to build the engine." },
+            { q: "List 3 foods which consist of good fat:", a: "Avocado, Nuts/Seeds, Deep Sea Fish (Salmon)", explanation: "These act as the biological 'coolant' to reduce inflammation and synthesize hormones." },
+            { q: "List 3 foods which consist of bad fat:", a: "Fried foods, Margarine/Trans fats, Processed baked goods", explanation: "These are toxic sludge. They harden your cell walls and choke your vascular system." },
+            { q: "The ideal lifestyle is:", a: "20% Exercise + 80% Nutrition", explanation: "You cannot out-train a toxic fuel supply. The kitchen builds the foundation; the gym simply tests it." },
+            { q: "What is the smallest component in the body?", a: "The Cell", explanation: "We do not feed stomachs; we feed cells. This is the definition of 'Cellular Nutrition.'" },
+            { q: "Chronic malnutrition will cause:", a: "Decreased energy level, Obesity.", explanation: "Modern society is overfed but undernourished. The body hoards fat because it is biologically starving for actual micronutrients." },
+            { q: "Which meal greatly affects our Blood Sugar Level for the day?", a: "Breakfast", explanation: "The first injection of fuel dictates the hormonal trajectory of the entire 24-hour cycle. Win the morning, win the day." },
+            { q: "Every day we have to consume 7 essential nutriments:", a: "Major: Protein, Carbs, Fats. Minor: Vitamins, Minerals, Fiber, Water.", explanation: "The absolute baseline requirements to prevent the human hardware from degrading." }
+        ];
+
+        // Render Quiz Accordions
+        const accordionContainer = document.getElementById('accordion-container');
+        quizData.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = "bg-gray-800 border border-gray-700 rounded-xl overflow-hidden";
+            div.innerHTML = `
+                <button onclick="toggleAccordion(${index})" class="w-full text-left px-6 py-4 font-semibold text-gray-200 hover:bg-gray-700 flex justify-between items-center transition-colors">
+                    <span>${index + 1}. ${item.q}</span>
+                    <span id="icon-${index}" class="text-gray-500 transform transition-transform">+</span>
+                </button>
+                <div id="content-${index}" class="hidden px-6 pb-5 pt-2 border-t border-gray-700 bg-gray-800/50">
+                    <p class="text-green-400 font-bold mb-2">Answer: <span class="text-white font-normal">${item.a}</span></p>
+                    <div class="bg-gray-900 border-l-4 border-blue-500 p-4 rounded text-sm text-gray-300">
+                        <span class="block text-blue-400 font-bold mb-1 uppercase tracking-wider text-[10px]">The Wolf's Translation</span>
+                        ${item.explanation}
+                    </div>
+                </div>
+            `;
+            accordionContainer.appendChild(div);
+        });
+
+        // Accordion Toggle Logic
+        function toggleAccordion(index) {
+            const content = document.getElementById(`content-${index}`);
+            const icon = document.getElementById(`icon-${index}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                content.classList.add('fade-in');
+                icon.innerText = "−";
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                content.classList.remove('fade-in');
+                icon.innerText = "+";
+                icon.classList.remove('rotate-180');
+            }
+        }
+    </script>
+</body>
+</html>
